@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style>
+    button:disabled i {
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="container">
+    <h2>
+      <span>Pomodoro</span>
+      <button :disabled="state==='started'" @click="start()"><i class="glyphicon glyphicon-play"></i></button>
+      <button :disabled="state!=='started'" @click="pause()"><i class="glyphicon glyphicon-pause"></i></button>
+      <button :disabled="state!=='started'" @click="stop()"><i class="glyphicon glyphicon-stop"></i></button>
+    </h2>
+    <h3>{{title}}</h3>
+    <div class="well">
+      <div class="pomodoro-timer">
+        <span>{{min}}</span>:<span>{{sec}}</span>
+      </div>
+    </div>
+    <img v-if="showCat" v-bind:src="catImageUrl" alt="Cat Image">
+  </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
